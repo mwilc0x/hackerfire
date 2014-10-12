@@ -16,9 +16,12 @@ Get Top Stories:
 ```sh
 var hackerfire = require('hackerfire');
 
-hackerfire.getTopStories().then(function(response) {
-  console.log(response);
+var topStories = getTopStories();
+
+topStories.on('value', function(response) {
+  console.log(response.val());
 });
+
 ```
 Get User:
 
