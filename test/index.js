@@ -4,7 +4,7 @@ var chai = require('chai'),
     should = chai.should(),
     expect = chai.expect,
     spies = require('chai-spies'),
-    hackerfire = require('../index');
+    hackerfire = require('hackerfire');
 
 describe('top stories', function() {
 
@@ -32,7 +32,7 @@ describe('users', function() {
     hackerfire.getUserById('mot0rola', function(res) {
       expect(res).to.not.be.undefined;
     });
-    
+
   });
 
   it('should return a list of users with an array input of users', function() {
