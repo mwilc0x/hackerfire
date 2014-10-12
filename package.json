@@ -1,6 +1,6 @@
 {
   "name": "hackerfire",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A node module to wrap around the Hacker News Firebase API",
   "main": "index.js",
   "scripts": {
@@ -31,5 +31,11 @@
     "gulp-mocha": "^1.1.1",
     "gulp": "^3.8.8",
     "request-promise": "^0.2.2"
+  },
+  "licenses": [
+  {
+    "type": "MIT",
+    "url": "https://raw.githubusercontent.com/mjw56/hackerfire/master/LICENSE"
   }
+],
 }
