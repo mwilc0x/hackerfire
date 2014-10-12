@@ -25,18 +25,20 @@ Get User:
 ```sh
 var user = hackerfire.getUserById('pg');
 
-for(var i = 0; i < user.length; i++) {
-  foo[i].then(function(response){
-    console.log(response);
-  })
-}
+user.on('value', function(response) {
+  console.log(response.val());
+}, function(error) {
+  console.log('retrieval failed: ' + error.code);
+});
 
 var users = hackerfire.getUserById([ 'pg', 'foobar' ]);
 
 for(var i = 0; i < users.length; i++) {
-  foo[i].then(function(response){
-    console.log(response);
-  })
+  users[i].on('value', function(response) {
+    console.log(response.val());
+  }, function(error) {
+    console.log('retrieval failed: ' + error.code);
+  });
 }
 
 ```
@@ -47,20 +49,27 @@ Get Item:
 var item = hackerfire.getItem( '8265435' );
 
 for(var i = 0; i < item.length; i++) {
-  foo[i].then(function(response){
-    console.log(response);
-  })
+  item.on('value', function(response) {
+    console.log(response.val());
+  }, function(error) {
+    console.log('retrieval failed: ' + error.code);
+  });
 }
 
-var item = hackerfire.getItem([ '8265435', '8168423' ]);
+var items = hackerfire.getItem([ '8265435', '8168423' ]);
 
 for(var i = 0; i < items.length; i++) {
-  foo[i].then(function(response){
-    console.log(response);
-  })
+  items.on('value', function(response) {
+    console.log(response.val());
+  }, function(error) {
+    console.log('retrieval failed: ' + error.code);
+  });
 }
 
 ```
+
+For more information on how firebase works for retrieving data, check out their docs:
+https://www.firebase.com/docs/web/guide/retrieving-data.html
 
 ## Tests
 

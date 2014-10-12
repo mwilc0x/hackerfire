@@ -5,7 +5,7 @@
       should = chai.should(),
       expect = chai.expect,
       spies = require('chai-spies'),
-      hackerfire = require('hackerfire');
+      hackerfire = require('../index');
 
   describe('hackerfire node module', function() {
 
@@ -15,31 +15,49 @@
 
     describe('top stories', function() {
 
-      it('should return a list of top stories', function() {
+      it('should return a list of top stories', function(done) {
 
-        hackerfire.getTopStories(function(res) {
-          expect(res).to.not.be.undefined;
+        var stories = hackerfire.getTopStories();
+        stories.on('value', function(snapshot){
+          expect(snapshot.val()).to.not.be.undefined;
+          done();
         });
-        
+
       });
 
     });
 
     describe('users', function() {
 
-      it('should return a list of users with a single string input', function() {
+      it('should return a list of users with a single string input', function(done) {
 
-        hackerfire.getUserById('mot0rola', function(res) {
-          expect(res).to.not.be.undefined;
-        });
+        var user = hackerfire.getUserById('pg');
+
+        expect(user).to.have.length.of.at.least(1);
+
+        for(var i = 0; i < user.length; i++) {
+          user[i].on('value', function(snapshot){
+            expect(snapshot.val()).to.not.be.undefined;
+          });
+        }
+
+        done();
 
       });
 
-      it('should return a list of users with an array input of users', function() {
+      it('should return a list of users with an array input of users', function(done) {
 
-        hackerfire.getUserById(['pg', 'mot0rola'], function(res) {
-          expect(res).to.not.be.undefined;
-        });
+        var users = hackerfire.getUserById(['pg', 'mot0rola']);
+
+        expect(users).to.have.length.of.at.least(2);
+
+        for(var i = 0; i < users.length; i++) {
+          users[i].on('value', function(snapshot){
+            expect(snapshot.val()).to.not.be.undefined;
+          });
+        }
+
+        done();
 
       });
 
@@ -47,19 +65,35 @@
 
     describe('item', function() {
 
-      it('should return a list of items with a single string input', function() {
+      it('should return a list of items with a single string input', function(done) {
 
-        hackerfire.getUserById('8265435', function(res) {
-          expect(res).to.not.be.undefined;
-        });
+        var item = hackerfire.getItem('8265435');
+
+        expect(item).to.have.length.of.at.least(1);
+
+        for(var i = 0; i < item.length; i++) {
+          item[i].on('value', function(snapshot){
+            expect(snapshot.val()).to.not.be.undefined;
+          });
+        }
+
+        done();
 
       });
 
-      it('should return a list of items with an array input of users', function() {
+      it('should return a list of items with an array input of users', function(done) {
 
-        hackerfire.getUserById([ '8265435', '8168423' ], function(res) {
-          expect(res).to.not.be.undefined;
-        });
+        var item = hackerfire.getItem(['8265435', '8168423']);
+
+        expect(item).to.have.length.of.at.least(2);
+
+        for(var i = 0; i < item.length; i++) {
+          item[i].on('value', function(snapshot){
+            expect(snapshot.val()).to.not.be.undefined;
+          });
+        }
+
+        done();
 
       });
 
