@@ -2,8 +2,7 @@
 
 'use strict';
 
-var rp = require('request-promise'),
-    firebase = require('firebase'),
+var firebase = require('firebase'),
     baseUrl = 'https://hacker-news.firebaseio.com/v0/';
 
 module.exports = {
