@@ -1,12 +1,13 @@
 'use strict';
 
-var rp = require('request-promise');
-var baseUrl = 'https://hacker-news.firebaseio.com/v0/';
+var rp = require('request-promise'),
+    firebase = require('firebase'),
+    baseUrl = 'https://hacker-news.firebaseio.com/v0/';
 
 module.exports = {
 
   getTopStories: function() {
-    return rp( baseUrl + 'topstories.json?print=pretty' );
+    return new firebase( baseUrl + 'topstories' );
   },
 
   getUserById: function(ids) {
@@ -16,11 +17,11 @@ module.exports = {
     if(!Array.isArray(ids)) ids = [ids];
 
     for(var i = 0; i < ids.length; i++) {
-      promises.push(rp( baseUrl + 'user/' + ids[i] + '.json?print=pretty' ));
+      promises.push(new firebase( baseUrl + 'user/' + ids[i] ));
     }
 
     return promises;
-    
+
   },
 
   getItem: function(ids) {
@@ -30,7 +31,7 @@ module.exports = {
     if(!Array.isArray(ids)) ids = [ids];
 
     for(var i = 0; i < ids.length; i++) {
-      promises.push(rp( baseUrl + 'item/' + ids[i] + '.json?print=pretty' ));
+      promises.push(new firebase( baseUrl + 'item/' + ids[i] ));
     }
 
     return promises;
