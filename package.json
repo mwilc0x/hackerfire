@@ -1,0 +1,24 @@
+{
+  "name": "hackerfire",
+  "version": "0.0.0",
+  "description": "A node module to wrap around the Hacker News Firebase API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjw56/hackerfire.git"
+  },
+  "keywords": [
+    "hn",
+    "hackernews",
+    "firebase"
+  ],
+  "author": "Mike Wilcox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mjw56/hackerfire/issues"
+  },
+  "homepage": "https://github.com/mjw56/hackerfire"
+}
