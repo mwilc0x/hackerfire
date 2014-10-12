@@ -11,15 +11,16 @@ module.exports = {
 
   getUserById: function(ids) {
 
-      var promises = [];
+    var promises = [];
 
-      if(!Array.isArray(ids)) ids = [ids];
+    if(!Array.isArray(ids)) ids = [ids];
 
-      for(var i = 0; i < ids.length; i++) {
-        promises.push(rp( baseUrl + 'user/' + ids[i] + '.json?print=pretty' ));
-      }
+    for(var i = 0; i < ids.length; i++) {
+      promises.push(rp( baseUrl + 'user/' + ids[i] + '.json?print=pretty' ));
+    }
 
-      return promises;
+    return promises;
+    
   },
 
   getItem: function(ids) {
