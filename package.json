@@ -33,9 +33,9 @@
     "request-promise": "^0.2.2"
   },
   "licenses": [
-  {
-    "type": "MIT",
-    "url": "https://raw.githubusercontent.com/mjw56/hackerfire/master/LICENSE"
-  }
-],
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/mjw56/hackerfire/master/LICENSE"
+    }
+  ]
 }
