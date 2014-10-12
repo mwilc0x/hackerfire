@@ -16,7 +16,7 @@ Get Top Stories:
 ```sh
 var hackerfire = require('hackerfire');
 
-var topStories = getTopStories();
+var topStories = hackerfire.getTopStories();
 
 topStories.on('value', function(response) {
   console.log(response.val());
