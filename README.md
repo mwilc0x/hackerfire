@@ -62,6 +62,15 @@ for(var i = 0; i < items.length; i++) {
 
 ```
 
+## Tests
+
+```sh
+npm install
+
+gulp tests
+
+```
+
 ## Issues
 [Issues](https://github.com/mjw56/hackerfire/issues)
 
